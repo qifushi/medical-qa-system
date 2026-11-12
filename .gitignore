@@ -22,6 +22,7 @@ media/
 legacy_smartbrain/
 
 # ---------- 答辩与论文材料（不公开） ----------
+论文/
 ppt_build/
 开题答辩-*.pptx
 测试-*.pdf
