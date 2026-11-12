@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知贝医疗助手 · 独立运行</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; height: 100vh; display: flex; flex-direction: column;
+    font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+    background: #eef4fb; color: #1f2d3d;
+  }
+  header {
+    background: linear-gradient(135deg, #0f7b8a, #1a9fb0);
+    color: #fff; padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 10px rgba(15, 123, 138, .25);
+  }
+  header .logo { width: 34px; height: 34px; border-radius: 9px; background: rgba(255,255,255,.18);
+    display: grid; place-items: center; font-weight: 700; font-size: 17px; }
+  header h1 { font-size: 17px; margin: 0; font-weight: 600; }
+  header .sub { font-size: 12px; opacity: .85; margin-left: auto; }
+  main { flex: 1; display: flex; min-height: 0; }
+  aside {
+    width: 260px; padding: 18px; background: #fff; border-right: 1px solid #dbe6f2;
+    display: flex; flex-direction: column; gap: 16px; overflow-y: auto;
+  }
+  aside h2 { font-size: 13px; color: #63758c; margin: 0 0 6px; font-weight: 600; letter-spacing: .5px; }
+  .panel { background: #f6f9fd; border: 1px solid #e3ecf5; border-radius: 10px; padding: 12px; }
+  .switch { display: flex; align-items: center; justify-content: space-between; font-size: 13px; padding: 5px 0; }
+  .switch input { width: 38px; height: 20px; appearance: none; background: #cbd8e6; border-radius: 20px; position: relative; cursor: pointer; outline: none; transition: .2s; }
+  .switch input:checked { background: #18a3b5; }
+  .switch input::after { content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #fff; top: 2px; left: 2px; transition: .2s; }
+  .switch input:checked::after { left: 20px; }
+  select, input[type=file] { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #d3e0ee; font-size: 13px; background: #fff; color: #1f2d3d; }
+  .tips { font-size: 12px; color: #7b8ba1; line-height: 1.7; }
+  .chat-wrap { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  #messages { flex: 1; overflow-y: auto; padding: 22px 26px; display: flex; flex-direction: column; gap: 14px; }
+  .msg { max-width: 78%; padding: 11px 15px; border-radius: 14px; font-size: 14px; line-height: 1.75; white-space: pre-wrap; word-break: break-word; }
+  .msg.user { align-self: flex-end; background: #18a3b5; color: #fff; border-bottom-right-radius: 4px; }
+  .msg.bot { align-self: flex-start; background: #fff; border: 1px solid #e3ecf5; border-bottom-left-radius: 4px; box-shadow: 0 2px 8px rgba(31,45,61,.05); }
+  .msg.sys { align-self: center; background: #ffe9e9; color: #c0392b; font-size: 13px; }
+  .composer { padding: 14px 22px 18px; background: #fff; border-top: 1px solid #dbe6f2; }
+  .tools { display: flex; gap: 8px; margin-bottom: 8px; align-items: center; flex-wrap: wrap; }
+  .btn { border: none; border-radius: 8px; padding: 7px 13px; font-size: 13px; cursor: pointer;
+    background: #e8f1f9; color: #275a75; transition: .15s; }
+  .btn:hover { background: #d8e8f4; }
+  .btn.primary { background: #18a3b5; color: #fff; padding: 9px 22px; font-size: 14px; }
+  .btn.primary:hover { background: #128b9b; }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  .row { display: flex; gap: 10px; align-items: flex-end; }
+  textarea { flex: 1; resize: none; height: 52px; padding: 10px 13px; border-radius: 10px;
+    border: 1px solid #d3e0ee; font-size: 14px; font-family: inherit; outline: none; }
+  textarea:focus { border-color: #18a3b5; box-shadow: 0 0 0 3px rgba(24,163,181,.12); }
+  .status { font-size: 12px; color: #7b8ba1; margin-left: auto; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">知</div>
+  <h1>知贝医疗助手</h1>
+  <span class="sub">medical 模块 · 独立运行</span>
+</header>
+<main>
+  <aside>
+    <div>
+      <h2>能力选项</h2>
+      <div class="panel">
+        <div class="switch"><span>智能联网搜索</span><input type="checkbox" id="smartSearch"></div>
+        <div class="switch"><span>深度思考</span><input type="checkbox" id="deepThink"></div>
+      </div>
+    </div>
+    <div>
+      <h2>知识库</h2>
+      <div class="panel">
+        <select id="kbType">
+          <option value="">自动选择</option>
+          <option value="report_analysis">报告分析</option>
+          <option value="medicine_analysis">用药分析</option>
+          <option value="medical_service">医疗服务</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <h2>附件</h2>
+      <div class="panel">
+        <input type="file" id="imageInput" accept="image/*" style="margin-bottom:8px">
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt,.md,.csv,.json">
+      </div>
+    </div>
+    <div>
+      <h2>说明</h2>
+      <div class="tips">
+        模型服务由 LM Studio 提供（默认 http://localhost:1234）。<br>
+        医学实体识别与知识库检索由本地 CMeKG + knowledge_bases 完成。<br>
+        回答仅供参考，不能替代医生诊断。
+      </div>
+    </div>
+  </aside>
+
+  <div class="chat-wrap">
+    <div id="messages">
+      <div class="msg bot">你好，我是知贝医疗助手。请描述你的症状、用药或报告问题，我会结合本地医学知识库给出建议。</div>
+    </div>
+    <div class="composer">
+      <div class="tools">
+        <button class="btn" id="resetBtn">清空对话</button>
+        <span class="status" id="status">就绪</span>
+      </div>
+      <div class="row">
+        <textarea id="input" placeholder="请输入你的问题，Enter 发送，Shift+Enter 换行"></textarea>
+        <button class="btn primary" id="sendBtn">发送</button>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+const API = '/api/medical/';
+const messages = document.getElementById('messages');
+const input = document.getElementById('input');
+const sendBtn = document.getElementById('sendBtn');
+const statusEl = document.getElementById('status');
+
+function addMsg(text, role) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+  return div;
+}
+
+function setStatus(t) { statusEl.textContent = t; }
+
+async function uploadFile(file, kind) {
+  const form = new FormData();
+  const field = kind === 'image' ? 'image' : 'file';
+  form.append(field, file);
+  const url = kind === 'image' ? API + 'upload/image/' : API + 'upload/file/';
+  const res = await fetch(url, { method: 'POST', body: form });
+  const data = await res.json();
+  if (data.code !== 200) throw new Error(data.message || '上传失败');
+  return { name: file.name, path: data.data };
+}
+
+async function send() {
+  const content = input.value.trim();
+  if (!content) return;
+  addMsg(content, 'user');
+  input.value = '';
+  sendBtn.disabled = true;
+  setStatus('正在生成回答…');
+  const botEl = addMsg('正在思考…', 'bot');
+  try {
+    const res = await fetch(API + 'chat/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content,
+        smart_search: document.getElementById('smartSearch').checked,
+        deep_think: document.getElementById('deepThink').checked,
+        kb_type: document.getElementById('kbType').value || null,
+      }),
+    });
+    const data = await res.json();
+    if (data.code === 200) {
+      botEl.textContent = (data.data || '（空回复）').replace(/<br\s*\/?>/gi, '\n');
+      setStatus('就绪');
+    } else {
+      botEl.className = 'msg sys';
+      botEl.textContent = '请求失败：' + (data.message || data.code);
+      setStatus('请求失败');
+    }
+  } catch (e) {
+    botEl.className = 'msg sys';
+    botEl.textContent = '请求异常：' + e.message;
+    setStatus('请求异常');
+  } finally {
+    sendBtn.disabled = false;
+    messages.scrollTop = messages.scrollHeight;
+  }
+}
+
+sendBtn.onclick = send;
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+
+document.getElementById('resetBtn').onclick = async () => {
+  await fetch(API + 'reset_history/', { method: 'POST' });
+  messages.innerHTML = '<div class="msg bot">对话已清空，请继续提问。</div>';
+  setStatus('已清空');
+};
+
+document.getElementById('imageInput').onchange = async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  setStatus('图片上传中…');
+  try {
+    const r = await uploadFile(f, 'image');
+    input.value = (input.value + ` 图片: ${r.name} (${r.path})`).trim();
+    setStatus('图片已附加');
+  } catch (err) { setStatus('图片上传失败：' + err.message); }
+  e.target.value = '';
+};
+
+document.getElementById('fileInput').onchange = async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  setStatus('文件上传中…');
+  try {
+    const r = await uploadFile(f, 'file');
+    input.value = (input.value + ` 文件: ${r.name} (${r.path})`).trim();
+    setStatus('文件已附加');
+  } catch (err) { setStatus('文件上传失败：' + err.message); }
+  e.target.value = '';
+};
+</script>
+</body>
+</html>

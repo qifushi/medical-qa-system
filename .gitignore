@@ -1,0 +1,50 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---------- 前端依赖与构建产物 ----------
+node_modules/
+ui/dist/
+ui/.vite/
+dist/
+build/
+
+# ---------- 数据、模型、索引（体积过大，需按 README 单独准备） ----------
+data/
+tools/
+media/
+
+# ---------- 平台遗留代码（与本医疗系统无关） ----------
+legacy_smartbrain/
+
+# ---------- 答辩与论文材料（不公开） ----------
+ppt_build/
+开题答辩-*.pptx
+测试-*.pdf
+对比分析报告.html
+医疗问答系统-对比分析报告.pdf
+~$*.pptx
+
+# ---------- 本地配置与运行时 ----------
+.env
+db.sqlite3
+*.log
+.run/
+.DS_Store
+Thumbs.db
+
+# ---------- 缓存 ----------
+.pytest_cache/
+.mypy_cache/
+
+# ---------- 前端大体积二进制资源（原平台遗留页面使用，医疗问答功能不依赖） ----------
+ui/src/assets/videoBg.mp4
+ui/src/views/model-control-desk/**/*.iplayer
+ui/src/views/ppt-app/assets/fonts/
+ui/src/styles/font/*.eot
+ui/src/styles/font/*.otf
+ui/src/styles/font/*.ttf

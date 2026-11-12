@@ -1,0 +1,459 @@
+{
+  "config": {
+    "seed": 42,
+    "topk": 10,
+    "kb_names": [
+      "report_analysis",
+      "medicine_analysis",
+      "medical_service"
+    ]
+  },
+  "sets": {
+    "verbatim": {
+      "size": 120,
+      "overall": {
+        "substring": {
+          "recall@1": 0.8917,
+          "recall@5": 0.9917,
+          "recall@10": 0.9917,
+          "mrr@10": 0.9382,
+          "ndcg@10": 0.952,
+          "miss": 0.0083,
+          "latency_ms": 120.6
+        },
+        "lexical": {
+          "recall@1": 0.8167,
+          "recall@5": 0.975,
+          "recall@10": 0.9917,
+          "mrr@10": 0.8892,
+          "ndcg@10": 0.9149,
+          "miss": 0.0083,
+          "latency_ms": 81.1
+        },
+        "semantic": {
+          "recall@1": 0.075,
+          "recall@5": 0.1333,
+          "recall@10": 0.15,
+          "mrr@10": 0.0977,
+          "ndcg@10": 0.1104,
+          "miss": 0.85,
+          "latency_ms": 79.3
+        },
+        "hybrid": {
+          "recall@1": 0.875,
+          "recall@5": 0.9833,
+          "recall@10": 0.9917,
+          "mrr@10": 0.9241,
+          "ndcg@10": 0.9412,
+          "miss": 0.0083,
+          "latency_ms": 120.9
+        }
+      },
+      "per_kb": {
+        "report_analysis": {
+          "substring": {
+            "recall@1": 0.875,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.9313,
+            "ndcg@10": 0.9489,
+            "miss": 0.0,
+            "latency_ms": 150.0
+          },
+          "lexical": {
+            "recall@1": 0.9,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.9437,
+            "ndcg@10": 0.9581,
+            "miss": 0.0,
+            "latency_ms": 95.8
+          },
+          "semantic": {
+            "recall@1": 0.175,
+            "recall@5": 0.275,
+            "recall@10": 0.325,
+            "mrr@10": 0.2161,
+            "ndcg@10": 0.242,
+            "miss": 0.675,
+            "latency_ms": 82.9
+          },
+          "hybrid": {
+            "recall@1": 0.9,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.9396,
+            "ndcg@10": 0.9548,
+            "miss": 0.0,
+            "latency_ms": 124.3
+          }
+        },
+        "medicine_analysis": {
+          "substring": {
+            "recall@1": 0.85,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.9208,
+            "ndcg@10": 0.9414,
+            "miss": 0.0,
+            "latency_ms": 114.3
+          },
+          "lexical": {
+            "recall@1": 0.675,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.8229,
+            "ndcg@10": 0.8685,
+            "miss": 0.0,
+            "latency_ms": 58.6
+          },
+          "semantic": {
+            "recall@1": 0.05,
+            "recall@5": 0.1,
+            "recall@10": 0.1,
+            "mrr@10": 0.0688,
+            "ndcg@10": 0.0765,
+            "miss": 0.9,
+            "latency_ms": 63.7
+          },
+          "hybrid": {
+            "recall@1": 0.8,
+            "recall@5": 1.0,
+            "recall@10": 1.0,
+            "mrr@10": 0.8958,
+            "ndcg@10": 0.9229,
+            "miss": 0.0,
+            "latency_ms": 92.8
+          }
+        },
+        "medical_service": {
+          "substring": {
+            "recall@1": 0.95,
+            "recall@5": 0.975,
+            "recall@10": 0.975,
+            "mrr@10": 0.9625,
+            "ndcg@10": 0.9658,
+            "miss": 0.025,
+            "latency_ms": 97.5
+          },
+          "lexical": {
+            "recall@1": 0.875,
+            "recall@5": 0.925,
+            "recall@10": 0.975,
+            "mrr@10": 0.9008,
+            "ndcg@10": 0.9183,
+            "miss": 0.025,
+            "latency_ms": 88.9
+          },
+          "semantic": {
+            "recall@1": 0.0,
+            "recall@5": 0.025,
+            "recall@10": 0.025,
+            "mrr@10": 0.0083,
+            "ndcg@10": 0.0125,
+            "miss": 0.975,
+            "latency_ms": 91.3
+          },
+          "hybrid": {
+            "recall@1": 0.925,
+            "recall@5": 0.95,
+            "recall@10": 0.975,
+            "mrr@10": 0.9369,
+            "ndcg@10": 0.9458,
+            "miss": 0.025,
+            "latency_ms": 145.7
+          }
+        }
+      }
+    },
+    "paraphrase": {
+      "size": 60,
+      "overall": {
+        "substring": {
+          "recall@1": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "mrr@10": 0.0,
+          "ndcg@10": 0.0,
+          "miss": 1.0,
+          "latency_ms": 121.0
+        },
+        "lexical": {
+          "recall@1": 0.45,
+          "recall@5": 0.6667,
+          "recall@10": 0.7167,
+          "mrr@10": 0.5316,
+          "ndcg@10": 0.5763,
+          "miss": 0.2833,
+          "latency_ms": 75.2
+        },
+        "semantic": {
+          "recall@1": 0.0167,
+          "recall@5": 0.0333,
+          "recall@10": 0.0667,
+          "mrr@10": 0.026,
+          "ndcg@10": 0.0353,
+          "miss": 0.9333,
+          "latency_ms": 75.0
+        },
+        "hybrid": {
+          "recall@1": 0.4833,
+          "recall@5": 0.7833,
+          "recall@10": 0.8167,
+          "mrr@10": 0.5939,
+          "ndcg@10": 0.6483,
+          "miss": 0.1833,
+          "latency_ms": 114.3
+        }
+      },
+      "per_kb": {
+        "report_analysis": {
+          "substring": {
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "recall@10": 0.0,
+            "mrr@10": 0.0,
+            "ndcg@10": 0.0,
+            "miss": 1.0,
+            "latency_ms": 148.9
+          },
+          "lexical": {
+            "recall@1": 0.6,
+            "recall@5": 0.8,
+            "recall@10": 0.85,
+            "mrr@10": 0.675,
+            "ndcg@10": 0.7174,
+            "miss": 0.15,
+            "latency_ms": 77.4
+          },
+          "semantic": {
+            "recall@1": 0.05,
+            "recall@5": 0.1,
+            "recall@10": 0.1,
+            "mrr@10": 0.0625,
+            "ndcg@10": 0.0715,
+            "miss": 0.9,
+            "latency_ms": 76.6
+          },
+          "hybrid": {
+            "recall@1": 0.6,
+            "recall@5": 0.8,
+            "recall@10": 0.85,
+            "mrr@10": 0.6738,
+            "ndcg@10": 0.7163,
+            "miss": 0.15,
+            "latency_ms": 115.2
+          }
+        },
+        "medicine_analysis": {
+          "substring": {
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "recall@10": 0.0,
+            "mrr@10": 0.0,
+            "ndcg@10": 0.0,
+            "miss": 1.0,
+            "latency_ms": 114.6
+          },
+          "lexical": {
+            "recall@1": 0.3,
+            "recall@5": 0.5,
+            "recall@10": 0.6,
+            "mrr@10": 0.3931,
+            "ndcg@10": 0.4425,
+            "miss": 0.4,
+            "latency_ms": 58.4
+          },
+          "semantic": {
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "recall@10": 0.05,
+            "mrr@10": 0.0083,
+            "ndcg@10": 0.0178,
+            "miss": 0.95,
+            "latency_ms": 59.7
+          },
+          "hybrid": {
+            "recall@1": 0.35,
+            "recall@5": 0.75,
+            "recall@10": 0.75,
+            "mrr@10": 0.4867,
+            "ndcg@10": 0.5514,
+            "miss": 0.25,
+            "latency_ms": 86.0
+          }
+        },
+        "medical_service": {
+          "substring": {
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "recall@10": 0.0,
+            "mrr@10": 0.0,
+            "ndcg@10": 0.0,
+            "miss": 1.0,
+            "latency_ms": 99.5
+          },
+          "lexical": {
+            "recall@1": 0.45,
+            "recall@5": 0.7,
+            "recall@10": 0.7,
+            "mrr@10": 0.5267,
+            "ndcg@10": 0.569,
+            "miss": 0.3,
+            "latency_ms": 89.9
+          },
+          "semantic": {
+            "recall@1": 0.0,
+            "recall@5": 0.0,
+            "recall@10": 0.05,
+            "mrr@10": 0.0071,
+            "ndcg@10": 0.0167,
+            "miss": 0.95,
+            "latency_ms": 88.8
+          },
+          "hybrid": {
+            "recall@1": 0.5,
+            "recall@5": 0.8,
+            "recall@10": 0.85,
+            "mrr@10": 0.6213,
+            "ndcg@10": 0.6772,
+            "miss": 0.15,
+            "latency_ms": 141.6
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "我怀孕后检查得了弓形虫病，只能打胎了。现在已经快半年了还没治好。我现在用的药物是解放前有的。请问现在有没有新的治疗方法或特效药？我真的很急，请各位医师帮忙，我将终身感激！",
+      "gold": "请问弓形虫病现在有好的治疗药物吗?",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "请问弓形虫病现在有好的治疗药物吗?",
+        "弓形虫病的治疗方法有哪些？",
+        "弓形虫病检查有哪些呢？"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "爷爷冬天喜欢冬泳，对他的高血压有影响吗？",
+      "gold": "冬泳对高血压有影响吗？",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "冬泳对高血压有影响吗？",
+        "柚子对高血压有影响吗？",
+        "羊肉对高血压是否有影响"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "糖尿病7年了，现在脚痛是怎么回事？",
+      "gold": "糖尿病2期，脚痛，晚上睡不好怎么办",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "糖尿病2期，脚痛，晚上睡不好怎么办",
+        "糖尿病患者腰疼腿疼怎么回事",
+        "糖尿病体重上涨怎么回事"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "龟头边上白的一圈，龟头有点红，上厕所也不顺畅，去医院说是龟头炎，包皮红肿的治疗医院哪家好？",
+      "gold": "包皮红肿治疗医院哪家好",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "包皮红肿治疗医院哪家好",
+        "包皮红肿检查哪好",
+        "患包皮红肿的病因有什么"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "胃疼，一个星期了。由于吃了罐头鱼油腻，喝了浓铁观音后就开始疼，到现在一直疼。走动、扭腰、呼吸都会疼。请问各位医生，我该吃什么药或者吃些什么食物治疗？这个问题严重吗？左下腹疼也是胃疼吗？",
+      "gold": "胃疼有哪些症状表现",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "胃疼有哪些症状表现",
+        "受凉了胃疼如何缓解",
+        "胃病吃什么可以救治？"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "最近食欲不振，还有浮肿、无力的症状，去医院检查说是肾病，那么肾功能不全有哪些症状？",
+      "gold": "肾功能不全有哪些怎么看出？",
+      "substring_rank": 0,
+      "hybrid_rank": 4,
+      "hybrid_top3": [
+        "怎样更好的缓解慢性肾功能不全？",
+        "肾功能不全症状有哪些？",
+        "什么叫肾功能不全"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "冠状沟有水泡样东西，现在看着比以前多了，也不痛不痒，这是怎么回事？",
+      "gold": "冠状沟有小水泡需要怎么治疗",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "冠状沟有小水泡需要怎么治疗",
+        "龟头冠状沟长东西是怎么回事",
+        "龟头冠状沟里产生白色物质是啥？"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "小孩打乙肝加强针前需要抽血化验抗体吗？乙肝加强针几年打一次比较合适？",
+      "gold": "乙肝加强针几年打一次比较合理？",
+      "substring_rank": 0,
+      "hybrid_rank": 1,
+      "hybrid_top3": [
+        "乙肝加强针几年打一次比较合理？",
+        "乙肝疫苗几天内还能打",
+        "乙肝抗体指数多少"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "你同事的同事得了重症肌无力，你们都了解这个病，你们是不是也挺担心的？",
+      "gold": "如何进行治疗重症肌无力比较好",
+      "substring_rank": 0,
+      "hybrid_rank": 2,
+      "hybrid_top3": [
+        "我患上的重症肌无力是不是就要慢慢的死亡?",
+        "如何进行治疗重症肌无力比较好",
+        "怎么看是不是得了重症肌无力？"
+      ]
+    },
+    {
+      "set": "paraphrase",
+      "kb": "report_analysis",
+      "query": "我十二指胃溃疡现在好多了，还有幽门螺旋杆菌吗？我应该怎么查？还要吃治胃溃疡的药吗？",
+      "gold": "怎样检查幽门螺旋杆菌？",
+      "substring_rank": 0,
+      "hybrid_rank": 4,
+      "hybrid_top3": [
+        "如何检查幽门螺旋杆菌",
+        "如何检查幽门螺旋杆菌",
+        "如何检查幽门螺旋杆菌"
+      ]
+    }
+  ]
+}
