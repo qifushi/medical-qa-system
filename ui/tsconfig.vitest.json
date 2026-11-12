@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "composite": true,
+    "target": "esnext", // 使用ES最新语法
+    "module": "esnext", // 使用ES模块语法
+    "lib": [],
+    "types": ["node", "jsdom"],
+    "allowJs": true // 允许编译 JS 文件
+  },
+  "include": [
+    "src/**/*", // 确保包括Vue文件
+    "tests/**/*", // 如果你的测试文件夹也需要包含进来的话
+    "*.js", // 如果需要在根目录下直接运行一些JS文件的话，也可以包括进来
+    "*.ts" // 同理，包括TS文件
+  ],
+  "exclude": [
+    "node_modules", // 排除node_modules目录，不编译该目录下的文件
+    "**/*.spec.ts" // 排除所有以.spec.ts结尾的文件
+  ]
+}

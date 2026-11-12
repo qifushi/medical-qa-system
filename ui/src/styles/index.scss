@@ -1,0 +1,21 @@
+@import 'element-plus/dist/index.css';
+@import './variables.scss';
+@import './app.scss';
+@import './element-plus.scss';
+@import 'nprogress/nprogress.css';
+@import 'md-editor-v3/lib/style.css';
+@import './md-editor.scss';
+
+/* 强制隐藏所有通知 */
+.notification-container, .rc-notification {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -1000 !important;
+}
+
+/* 防止背景变暗 */
+.notification-mask {
+  display: none !important;
+}

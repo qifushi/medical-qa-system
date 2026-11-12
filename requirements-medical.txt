@@ -1,0 +1,17 @@
+Django==4.2.13
+Pillow>=10.2.0
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+ddgs>=9.0.0
+jieba>=0.42.1
+# CMeKG 医学实体识别/关系抽取
+torch>=2.2.0
+transformers>=4.40.0
+numpy>=1.24.0,<2
+# 文档解析（PDF / Word）
+PyPDF2>=3.0.0
+python-docx>=1.1.0
+# 扫描件 OCR（PaddleOCR）
+pymupdf>=1.24.0
+paddlepaddle>=3.0.0
+paddleocr>=3.0.0
