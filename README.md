@@ -164,7 +164,22 @@ data/
 
 ### 第二步：放置 CMeKG 模型（可选）
 
-CMeKG 为开源项目，请从其官方仓库下载后放到：
+CMeKG（Chinese Medical Knowledge Graph）是中文医学知识图谱工具集，提供医学分词、实体识别、关系抽取三个 BERT 模型，合计约 3 GB，不随本仓库分发。
+
+**代码仓库**：https://github.com/king-yyf/CMeKG_tools
+**项目主页**：https://cmekg.pcl.ac.cn/
+
+**模型下载**（百度网盘，作者提供的原始链接）：
+
+| 模型 | 链接 | 密码 |
+|---|---|---|
+| 关系抽取 RE | https://pan.baidu.com/s/1cIse6JO2H78heXu7DNewmg | `4s6k` |
+| 实体识别 NER | https://pan.baidu.com/s/16TPSMtHean3u9dJSXF9mTw | `shwh` |
+| 医学分词 CWS | https://pan.baidu.com/s/1bU3QoaGs2IxI34WBx7ibMQ | `yhek` |
+
+也可以直接克隆代码仓库，`git clone https://github.com/king-yyf/CMeKG_tools.git`（模型仍需从上面的网盘下载）。
+
+解压后的目录结构：
 
 ```
 tools/CMeKG_tools-main/CMeKG/
@@ -173,7 +188,7 @@ tools/CMeKG_tools-main/CMeKG/
 └── medical_re/
 ```
 
-这三个是 BERT 分词 / 实体识别 / 关系抽取模型（合计约 3 GB），不随本仓库分发。缺失时日志会报模型加载失败，**知识库混合检索与问答主流程仍然可用**，仅实体覆盖通道的质量下降。
+缺失时日志会报模型加载失败，**知识库混合检索与问答主流程仍然可用**，仅实体覆盖通道的质量下降。
 
 ### 第三步：构建检索索引
 
